@@ -1,5 +1,5 @@
 # share-book
 ## CSS
-* [盒模型](/share/CSS/盒模型.md)
-* [Dom事件](/share/CSS/Dom事件.md)
-* [HTTP协议](/share/CSS/HTTP协议.md)
+* [盒模型](/share/css/盒模型.md)
+* [Dom事件](/share/css/Dom事件.md)
+* [HTTP协议](/share/css/HTTP协议.md)
