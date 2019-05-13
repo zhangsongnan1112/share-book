@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function person (name) {
+      this.name = name || '人类'
+    }
+    class peroson2 {
+      constructor (name) {
+        this.name =name;
+      }
+    }
+    //实例类的对象 
+  console.log(new person(), new peroson2('2ww'))
+
+    //apply call()
+    var sum = function(a,b) {
+      return a+b
+    }
+    var reduce = function(a,b){
+      return a+b
+     
+    }
+    console.log(sum.call(reduce,1,2))
+    console.log(sum.apply(reduce,[1,2]))
+    // 继承
+    // 借助构造函数实现继承
+    function parent () {
+      this.name = 'parent1';
+      this.eat = function(){
+        console.log('吃parent')
+      }
+      this.play = [1,2,3];
+    }
+    parent.prototype.run = function(){
+      console.log('parent原型连跑方法')
+    }
+    function child1() { 
+      parent.apply(this)
+      this.type ='child1'
+    }
+    console.log(new child1())
+    //构造函数不能继承父类原型对象的方法 实现部分继承
+
+
+    //原型连实现继承
+    function child2 () {
+      this.type = 'child2'
+    }
+    child2.prototype = new parent()
+    console.log(new child2)
+    console.log(new child2().__proto__ === child2.prototype) //实例的隐式原型指向构造函数的显示原型   // true
+    console.log(new child2().play ,new child1().play)
+   
+    //缺点: 
+    var s1 = new child2();
+    var s2 = new child2()
+    s1.play.push(7);
+    console.log(s1.play)  //[1,2,3,7]
+    console.log(s2.play) //[1,2,3,7]
+    //原因： 原型连上的原型对象是共用的
+  </script>
+</body>
+</html>
