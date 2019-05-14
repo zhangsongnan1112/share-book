@@ -29,6 +29,7 @@
     }
     console.log(sum.call(reduce,1,2))
     console.log(sum.apply(reduce,[1,2]))
+
     // 继承
     // 借助构造函数实现继承
     function parent () {
@@ -65,6 +66,60 @@
     console.log(s1.play)  //[1,2,3,7]
     console.log(s2.play) //[1,2,3,7]
     //原因： 原型连上的原型对象是共用的
+
+
+    // 组合方式实现继承
+   
+    //组合优化 1
+    function parent3 () {
+      this.name = 'parent3';
+      this.eat = function(){
+        console.log('吃parent3')
+      }
+      this.play = [1,2,3];
+    }
+    parent3.prototype.run = function(){
+      console.log('parent3原型连跑方法')
+    }
+    function child6 (){
+      parent3.call(this);
+      this.name  = 'child6'
+    }
+    child6.prototype =  parent3.prototype;
+    var s5 = new child6();
+    var s6 = new child6()
+    s5.play.push(1);
+    console.log(s5.play) 
+    console.log(s6.play)
+    console.log(s5 instanceof child6, s5 instanceof parent3)  //true true 
+    console.log(s5.constructor) //parent3
+    //无法区分一个对象是子类还是父类直接实例化的   
+    //constructor  实例是哪个函数够实例来的
+    
+    //组合优化2
+    function parent4 () {
+      this.name = 'parent4';
+      this.eat = function(){
+        console.log('吃parent34')
+      }
+      this.play = [1,2,3];
+    }
+    parent4.prototype.run = function(){
+      console.log('parent3原型连跑方法')
+    }
+    function child7 (){
+      parent3.call(this);
+      this.name  = 'child7'
+    }
+    child7.prototype = Object.create(parent4.prototype) 
+    var s7 = new child7();
+    var s8 = new child7()
+    s7.play.push(7);
+    console.log(s7.play)  //1,2,3,7
+    console.log(s8.play)  // 1,2,3
+    console.log(s7 instanceof child7, s7 instanceof parent4)  //true true 
+    child7.prototype.constructor = child7
+    console.log(s7.constructor) //child7
   </script>
 </body>
 </html>
