@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<input type="text" id="text">
+<span id="box"></span>
+<script>
+  
+var oText = document.getElementById('text')
+var oBox =  document.getElementById('box')
+var obj = {};
+Object.defineProperty(obj,'username',{
+  set :function(val) {
+    oBox.innerHTML = val;
+    oText.value = val;
+  }
+})
+oText.addEventListener('keyup',function(event){
+  obj.username =  event.target.value
+}) 
+</script>
+</body>
+</html>
