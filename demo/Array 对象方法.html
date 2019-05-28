@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   //  concat 链接两个或多个数组
+  var arr1 = [1,2,3]
+  var arr2 = [4,5,6]
+  var arr3 = [7,8,9]
+  document.write(arr1.concat(arr2,arr3))
+  // join  把数组的每一个元素通过分隔符分隔 ，放入一个字符串中
+  console.log(arr1.join())  //string
+  // pop  删除数组中最后的元素 并且返回删除的元素  把数组长度减1
+  console.log(arr1.pop())   //3
+  console.log(arr1)    //[1,2] length:2
+  // push  向数组末尾增加一个或多个元素  并返回新的长度 
+  console.log(arr1.push(1,2,3,4))  //6
+  console.log(arr1)
+  // reverse() 颠倒数组中元素的顺序。
+  console.log(arr3.reverse())
+  // shift() 删除数组的第一个元素  并返回删除的第一个元素
+  console.log(arr3.shift())
+  console.log(arr3)
+  // sclice(start,end)   包起始位置 不包括终点位置 从已有的数组中返回制定的元素 end可选没有制定参数时默认到数组的末尾
+  console.log([0,1,2,3,4].slice(2,3))
+  // sort()  排序
+  console.log([5,6,0,1,2,3,4].sort()) 
+  // splice(index,howmany,item1,.....,itemX)  从数组中添加/删除项目，然后返回被删除的项目。
+  var array1 = ["one","two","three","four","five","six"]
+  array1.splice(1,4,"seven","eight");
+  console.log(array1 )
+  //  toString()
+  array1.toString()
+  console.log(array1.toString())
+  // unshift() 向数组的开头添加一个活更多元素，并返回新的长度
+  console.log(arr2.unshift('zsn'))
+  console.log(arr2)
+  </script> 
+</body>
+</html>
