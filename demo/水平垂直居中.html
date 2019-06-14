@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 不知宽度的div水平、垂直居中的方法 */
+    /* 
+    一、定位在借助transform
+     */
+    .box1 {
+      position: relative;
+      height:300px;
+      width: 300px;
+      background: #FD0C70;
+      margin-bottom: 20px;
+    }
+    .text1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: #fff;
+      transform: translate(-50%, -50%);
+    }
+    /* 
+    二、display:table
+     */
+    .box2 {
+      display: table;
+      height:300px;
+      width: 300px;
+      background-color: #FD0C70;
+      margin-bottom: 20px;
+    }
+    .text2 {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      color: #fff;
+    }
+    /* 
+    三、 display:flex
+     */
+    .box3 {
+      display: flex;
+      height:300px;
+      width: 300px;
+      background-color: #FD0C70;
+      justify-content: center;
+      align-items: center;
+    }
+    /* 已知宽高的盒子水平垂直居中的方法 */
+    /* 
+      四、这是第四种、加上前三种都能使已知宽高的盒子水平垂直居
+     */
+    .box4 {
+      width: 300px;
+      height: 300px;
+      position: relative;
+      top:0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      margin: auto;
+      background: #FD0C70;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">
+    <span class="text1">NIHAO</span>
+  </div>
+  <div class="box2">
+    <span class="text2">NIHAO2</span>
+  </div>
+  <div class="box3">
+    <span class="text3">NIHAO2</span>
+  </div>
+  <div class="box4">
+  </div>
+</body>
+</html>
