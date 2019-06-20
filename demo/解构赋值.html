@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* 数组的解构赋值 */
+    let [a,b] = [1,2]
+    console.log(a) // 1 
+    console.log(b) // 2
+    let [c,[d,[e]],f] = [1,[2,[]],3]
+    console.log(c)
+    console.log(d)
+    console.log(e)
+    console.log(f)
+    // 默认值
+    let [x,y=11] = [10,12]
+    console.log(x)
+    console.log(y)
+    /* 对象的解构赋值 */
+    let {name,age,honey} = {name:'zsn',age:18}
+    console.log(name)
+    console.log(age)
+    console.log(honey)
+    // 定义的变量名 与 对象不符时
+    let {name:sex} = {name : 'girls'}
+    console.log(sex)
+    let {xx , yy =33} = {xx :22 , yy : 11}
+    console.log(xx)
+    console.log(yy)
+  </script>
+</body>
+</html>

@@ -10,3 +10,4 @@
 * [Object.keys()的简单用法](/demo/Object.keys.html)
 * [JavaScript中this指向问题](/share/js/this指向.md)
 * [未知宽度和已知宽度的盒子水平垂直居中的方法](/demo/水平垂直居中.html)
+* [数组的扩展](/demo/se6数组的扩展.html)
