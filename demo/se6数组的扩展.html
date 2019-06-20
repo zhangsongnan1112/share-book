@@ -50,6 +50,21 @@
   /* includes()  返回一个布尔值，表示某个数组是否包含给定的值*/
   console.log([1, 2, 3].includes(2))   // true
   console.log([1, 2, 3].includes(4)  ) //false
+  /* in 的用法  判断数组对象里面是否有某个值 
+  　当为数组时，“变量”指的是数组的“索引”；
+　　当为对象是，“变量”指的是对象的“属性”。
+  */
+  var arr = ["a","b","2","3","str"];  
+  var result = ("b" in arr);   //false
+  var result1 = (4 in arr);   //true
+  var objqq={  
+         w:"wen",  
+         j:"jian",  
+         b:"bao"  
+           
+    }       
+  var result2=(2 in objqq);       // false
+  var result3=("j" in objqq);      // true
   </script>
 </body>
 </html>
