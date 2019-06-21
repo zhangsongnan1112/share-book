@@ -25,6 +25,8 @@
     console.log(Object.getOwnPropertyNames(obj)) // ["name", "sex"]
     /* Object.getOwnPropertySymbols() */
     console.log(Object.getOwnPropertySymbols(obj))  // [Symbol(sex)]
+    /* Reflect.ownKeys() */
+    console.log(Reflect.ownKeys(obj))  // ["name", "sex", Symbol(sex)]
     /* Object.is()方法判断两个值是否是相同的值。 */
     let obj1 = {
       name: 'zz',
