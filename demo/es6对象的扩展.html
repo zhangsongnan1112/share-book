@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* 对象属性的遍历 */
+    let age = Symbol('sex')
+    var obj = {
+      name: 'zsn',
+      sex: 'boy',
+      [age] : 18,
+    }
+    /* for in 遍历 */
+    for (let i  in obj) {
+      console.log(i) // name sex 
+    }
+    /* object.keys() */
+    console.log(Object.keys(obj)) // ["name", "sex"]
+    /* Object.getOwnPropertyNames() */
+    console.log(Object.getOwnPropertyNames(obj)) // ["name", "sex"]
+    /* Object.getOwnPropertySymbols() */
+    console.log(Object.getOwnPropertySymbols(obj))  // [Symbol(sex)]
+    /* Object.is()方法判断两个值是否是相同的值。 */
+    let obj1 = {
+      name: 'zz',
+      sex: 'boy'
+    }
+    console.log(Object.is(obj.name,obj1.name)) // false
+    console.log(Object.is(obj.sex,obj1.sex)) // true
+    console.log(Object.is(11,'11')) // false
+    /* Object.assign 对象的合并  浅拷贝*/
+    obj2 = {
+      honey: 'ball'
+    }
+    let obj3 = Object.assign(obj1,obj2,{a: 'aa'})
+    console.log(obj3) // {name: "zz", sex: "boy", honey: "ball", a: "aa"}
+    /* Object.values() 方法返回一个数组，成员是参数对象自身的*/
+    console.log(Object.values(obj3)) // ["zz", "boy", "ball", "aa"]
+  </script>
+</body>
+</html>
