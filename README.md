@@ -13,3 +13,4 @@
 * [数组的扩展](/demo/es6数组的扩展.html)
 * [数组的扩展](/demo/es6对象的扩展.html)
 * [set数据结构](/demo/es6Set.html)
+* [Map数据结构](/demo/Map.html)

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* 
+      set() 设置键值对
+      get() 获取对应的值
+     */
+    var obj = {
+      name: 'zsn',
+      age: 18
+    }
+    var map = new Map()
+    map.set(obj,'kjfl')
+    console.log(map.get(obj)) //kjfl
+    map.set('name', obj)
+    // size 长度
+    console.log(map.size) //2
+    // delete 删除值
+    map.delete(obj)
+    console.log(map)
+    // has 检测键名是否存在
+    console.log(map.has("name")) //true
+    // clear()  清除值
+  </script>
+</body>
+</html>
