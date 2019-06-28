@@ -12,3 +12,4 @@
 * [未知宽度和已知宽度的盒子水平垂直居中的方法](/demo/水平垂直居中.html)
 * [数组的扩展](/demo/es6数组的扩展.html)
 * [数组的扩展](/demo/es6对象的扩展.html)
+* [set数据结构](/demo/es6Set.html)
