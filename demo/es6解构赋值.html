@@ -32,6 +32,22 @@
     let {xx , yy =33} = {xx :22 , yy : 11}
     console.log(xx)
     console.log(yy)
+    // 对象的函数解构
+    var obj = {
+      name: 'zsn',
+      age: 18
+    }
+    function foo ({name,age}) {
+      document.write(`我叫${name},今年${age}岁`)
+    }
+    foo (obj)
+    // 数组的函数解构
+
+    var arr = [1,2,3]
+    function bar (a,b,c) {
+      document.write(`你好${a},你好${b},你好${c}`)
+    }
+    bar(...arr)
   </script>
 </body>
 </html>
