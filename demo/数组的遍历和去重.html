@@ -7,6 +7,132 @@
   <title>Document</title>
 </head>
 <body>
-  
+<script>
+  // 数组的遍历
+
+  var arr = [1,1,2,3,4,5,6]
+  /* for循环
+   */
+  for(let i = 0; i < arr.length; i++){
+    document.write(` ${arr[i]}<br>`)
+  }
+
+  /* for in  遍历 (数组和对象)
+   */
+  for(let i in arr) {
+    console.log(arr[i])
+  }
+  // 遍历对象的时候
+  var obj = {
+    name: 'zsn',
+    age: 11
+  }
+  for(let i in obj) {
+    console.log(obj[i]) // zsn 11
+  }
+ 
+  /* forEach遍历 接受三个参数 分别为数组元素、索引和数组本身
+   */
+  arr.forEach((element,index,self) => {
+     console.log(`${element},索引是${index}`) 
+     console.log(self) // 数组本身
+   });
+
+  /*  for of 遍历 entries() keys() values()
+   */
+
+   for (let [index,ele] of arr.entries()) {
+      document.write(`${ele}索引是${index} <br>`)
+   }
+
+  /* map 遍历数组 map的回调函数中支持return返回值 并不影响原来的数组，只是相当于把原数组克隆一份
+   */
+   var res = arr.map(function(ele,index,self){
+     return ele*10+index // [10, 11, 22, 33, 44, 55, 66]
+   })
+   console.log(res)
+
+   // filter 过滤 返回新的数组(符合条件的新的数组) 
+   arr.filter(function(ele , index){
+     console.log(ele,index)
+   })
+   let arr2 = arr.filter(function(ele,index){
+     return ele > 1
+   })
+   console.log(arr2) // [2, 3, 4, 5, 6]
+
+   /* every遍历  every()是对数组中的每一项运行给定函数，如果该函数对每一项返回true,则返回true
+   */
+   let arr3 = arr.every((ele,index,self) => {
+     return ele > 3
+   })
+   console.log(arr3) // false
+
+   /* some() some()是对数组中每一项运行指定函数，如果该函数对其中一项返回true，则返回true。*/
+   let arr4 = arr.some((ele,index,self) => {
+     return ele > 3
+   })
+   console.log(arr4) // true
+
+   /*  find()方法返回数组中符合函数条件的第一个元素*/
+   let f = arr.find(function(ele,index,self){
+     return ele == 3
+   })
+   console.log(f) // 3
+
+   /* findIndex()  找到则返回该数索引 找不到返回-1*/
+   let fi = arr.findIndex(function(ele,index,self){
+     return ele == 6
+   })
+   console.log(fi)  // 6
+
+
+  // 数组的去重
+  // indexOf方法
+  var arr1 = []
+  arr.forEach(function(ele,index){
+    if(arr1.indexOf(ele) ==-1){
+      arr1.push(ele)
+    }
+  })
+  console.log(arr1) //  [1, 2, 3, 4, 5, 6]
+   
+  // 数组下标判断法
+  var arrp = []
+  arr.forEach(function(ele,index){
+    if(arr.indexOf(ele) == index) {
+      arrp.push(ele)
+    }
+  })
+  console.log(arrp) //  [1, 2, 3, 4, 5, 6]
+
+  var arr5 = arr.filter((ele, index , self) => {
+    return self.indexOf(ele) === index
+  })
+  console.log(arr5) // [1, 2, 3, 4, 5, 6]
+
+  // es6 set 
+  var arrw = [...new Set(arr)] 
+  console.log(arrw) //  [1, 2, 3, 4, 5, 6]
+
+  // 排序去重
+  var arr6 = []
+  arr.sort()
+  arr.forEach((ele,index) => {
+    if(arr[index] != arr[index+1]) {
+      arr6.push(arr[index])
+    }
+  })
+  console.log(arr6) //  [1, 2, 3, 4, 5, 6]
+
+  // 数组下标去重法  扩展：如果重复，则去掉该元素
+  var arra = []
+  arr.forEach((ele) => {
+    if(arr.indexOf(ele) == arr.lastIndexOf(ele)) {
+      arra.push(ele)
+    }
+  })
+  console.log(arra) // [2, 3, 4, 5, 6]
+</script>
 </body>
 </html>
