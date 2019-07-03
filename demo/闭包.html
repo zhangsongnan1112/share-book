@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 函数a的返回值是一个匿名函数，它可以获取函数a作用域下的变量name,
+       将这个值作为返回值赋值给全局变量b,实现了在全局变量下获取到局部变量中的变量的值
+    */
+    function a () {
+      var name = 'zz'
+      return function() {
+        return name 
+      }
+    }
+   var b = a();
+   console.log(b()) // zz
+
+
+    var name = "The Window";
+    var object = {
+      name: "My Object",
+      getNameFunc: function () {
+        return function () {
+          return this.name
+        }
+      }
+    };
+    alert(object.getNameFunc()()) // The Window
+    var object1 = {
+      name: "My Object",
+      getNameFunc: function () {
+        var that = this;
+        return function () {
+          return that.name;
+        };
+      }
+    };
+    alert(object1.getNameFunc()()); // My Object
+
+
+    var x = 20;
+    var a = {
+      x: 15,
+      fn: function () {
+        var x = 30;
+        return function () {
+          return this.x
+        }
+      }
+    }
+    console.log(a.fn()); // function() {return this.x}
+    console.log((a.fn())());  // 20 
+    console.log(a.fn()()); // 20
+    console.log(a.fn()() == (a.fn())()); // true 
+    console.log(a.fn().call(this)); // 20
+    console.log(a.fn().call(a)); //  15
+
+  </script>
+</body>
+
+</html>
