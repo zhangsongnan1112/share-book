@@ -9,6 +9,7 @@
 * [Js中的闭包](/demo/闭包.html)
 * [Object.keys()的简单用法](/demo/Object.keys.html)
 * [JavaScript中this指向问题](/share/js/this指向.md)
+* [数组和对象实现深拷贝](/demo/深拷贝.html)
 * [数组的扩展](/demo/es6数组的扩展.html)
 * [对象的扩展](/demo/es6对象的扩展.html)
 * [set数据结构](/demo/es6Set.html)

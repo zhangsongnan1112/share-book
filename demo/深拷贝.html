@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  //  数组的深拷贝
+
+  /* for循环实现深拷贝 */
+  var arr = [1,2,3,4]
+  let arr1 = []
+  for (let i = 0; i < arr.length; i++) {
+    arr1.push(arr[i])
+  }
+  arr[1] = 5
+  console.log(arr1) // [1,2,3,4]
+
+  /* slice实现数组的深拷贝 */
+  var arr2 = [1,2,3,4]
+  var arr3 = arr2.slice(0)
+  arr2[1] = 5 
+  console.log(arr2)  // [1,5,3,4]
+  console.log(arr3)  // [1,2,3,4]
+
+  /* contact() 实现数组的深拷贝 */
+  var arr4 =  [4,4,4,4]
+  var arr5 = arr4.concat()
+  arr4[1] = 5
+  console.log(arr4) // [4, 5, 4, 4]
+  console.log(arr5) // [4, 4, 4, 4]
+
+  /* es6实现深拷贝 */
+  var arr6 = [6,6,6,6]
+  var arr7 = [...arr6]
+  arr6[1] = 5
+  console.log(arr6) // [6, 5, 6, 6]
+  console.log(arr7) //  [6, 6, 6, 6]
+
+  // 对象的深拷贝
+
+  /* for循环实现深拷贝 对象的合并*/
+  var obj = {
+    name : 'obj1',
+    age: '18'
+  }
+  var obj1 = {
+    name1 : 'obj1',
+    age1: '18'
+  }
+
+  for (var key in obj ) {
+    obj1[key] = obj[key]
+  }
+  obj.age = '19'
+  console.log(obj) // {name: "obj1", age: "19"}
+  console.log(obj1) // {name1: "obj1", age1: "18", name: "obj1", age: "18"}
+
+  /* 转换成json再转换成对象实现对象的深拷贝 */
+  var obj2 = {
+    name : 'obj2',
+    age: '18'
+  }
+  var obj3 = JSON.parse(JSON.stringify(obj2))
+  obj2.age = 20
+  console.log(obj2) // {name: "obj2", age: 20}
+  console.log(obj3) // {name: "obj2", age: "18"}
+
+  /* 扩展运算符实现对象的深拷贝 */
+  var obj4 =  {
+    name : 'obj4',
+    age: '18'
+  }
+  var obj5 = {...obj4}
+  obj4.age = 21
+  console.log(obj4) // {name: "obj4", age: 21}
+  console.log(obj5) // {name: "obj4", age: "18"}
+
+  /* Object.assign 实现数组的赋值是浅拷贝 */
+  var obj6 =  {
+    name : 'obj6',
+    age: 18
+  }
+  var obj7 = Object.assign(obj6)
+  obj6.age = 19
+  console.log(obj6) // {name: "obj6", age: 19}
+  console.log(obj7) // {name: "obj6", age: 19}
+  </script>
+</body>
+</html>
