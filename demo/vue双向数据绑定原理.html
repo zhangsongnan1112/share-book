@@ -11,18 +11,21 @@
 <span id="box"></span>
 <script>
   
-var oText = document.getElementById('text')
-var oBox =  document.getElementById('box')
-var obj = {};
-Object.defineProperty(obj,'username',{
-  set :function(val) {
-    oBox.innerHTML = val;
-    oText.value = val;
-  }
-})
-oText.addEventListener('keyup',function(event){
-  obj.username =  event.target.value
-}) 
+// var oText = document.getElementById('text')
+// var oBox =  document.getElementById('box')
+// var obj = {};
+// Object.defineProperty(obj,'username',{
+//   set :function(val) {
+//     oBox.innerHTML = val;
+//     oText.value = val;
+//   }
+// })
+// oText.addEventListener('keyup',function(event){
+//   obj.username =  event.target.value
+// }) 
+
+ 
+//Object.defineProperty() 接受三个参数， 一监控的对象是名字，二对象属性，三 接受一个对象，里面包含get set 方法 获取或设置监控属性的值
 </script>
 </body>
 </html>
