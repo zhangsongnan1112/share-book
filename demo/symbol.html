@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let aa = Symbol('zsn')
+    let bb = Symbol('zsn')
+    console.log(aa===bb) //false
+    // 变量值最为对象键名时
+    name = 'xgg'
+    let obj = {
+      [`shuijia${name}`]: 'buzi'
+    }
+    console.log(obj)
+    // symbol作为变量名时
+    let obj1 = {
+      [aa]: 'nn',
+      age: 18
+    }
+    obj1[aa] = 'sn'  // 更改变量名
+    console.log(obj1)
+
+    // 获取对象的变量名时
+    for (let i in obj1){
+      console.log(i)  // age 获取不到symbol属性
+    } 
+
+    console.log(Object.keys(obj1))   // 返回一个数组['age'] 获取不到symbol属性
+
+    console.log(Object.getOwnPropertyNames(obj1))  // 返回一个数组['age']  获取不到symbol属性
+
+    console.log(Object.getOwnPropertySymbols(obj1))  // [Symbol(zsn)] 只能获取到 symbol属性
+
+    console.log(Reflect.ownKeys(obj1))  // ["age", Symbol(zsn)] 都能获取到
+
+    console.log(JSON.stringify(obj1))  // {"age":18} 获取不到symbol 属性
+    //reflect
+    // 判断是否有某一属性
+    console.log(Reflect.has(obj1,'age')) // true
+    // 获取对象某一属性
+    console.log(Reflect.get(obj1, 'age')) // 18
+    // 设置某一属性
+    Reflect.set(obj1, 'sex' , '女')
+    console.log(obj1) // {age: 18, sex: "女", Symbol(zsn): "sn"}
+  </script>
+</body>
+</html>
